@@ -4,10 +4,13 @@ import { Spotlight } from "@/components/Spotlight/Spotlight";
 import logoTribe from '../../public/logoTribe.svg';
 import { HoverBorderGradient } from "@/components/HoverBorderGradient/HoverBorderGradient";
 import Image from "next/image";
+import { Montserrat } from "next/font/google";
+const montserrat = Montserrat({ subsets: ["latin"] });
+
 export default function Home() {
 
   return (    
-    <div className="h-screen w-full rounded-md flex md:items-center md:justify-center bg-black/[0.96] antialiased bg-grid-white/[0.02] relative overflow-hidden">
+    <div className="hiddenImageBg h-screen w-full rounded-md flex md:items-center md:justify-center bg-black/[0.96] antialiased bg-grid-white/[0.02] relative overflow-hidden">
     <Spotlight
       className="-top-40 left-0 md:left-60 md:-top-20"
       fill="white"
@@ -22,17 +25,14 @@ export default function Home() {
         <br/>
         Get started now by clicking the button below
       </p>
-      <div className="animate-buttonFadeIn m-40 flex justify-center text-center">
-        <HoverBorderGradient
-          duration={300}
-          containerClassName="rounded-full"
-          as="button"
-          className="dark:bg-black bg-white text-black dark:text-white flex items-center space-x-2"
-        >
-          <Image src={logoTribe} width={22} alt="logoTribe"/>
-          <span><b>Tribe</b>Tasker</span>
-        </HoverBorderGradient>
-      </div>
+      <div className="flex justify-center mt-40">
+          <button className="animate-buttonFadeIn relative flex justify-center text-center h-12 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
+            <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" />
+            <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 px-3 py-1 text-sm font-medium text-white backdrop-blur-3xl">
+              <b>Tribe</b>Tasker
+            </span>
+          </button>
+        </div>
     </div>
   </div>
   );
