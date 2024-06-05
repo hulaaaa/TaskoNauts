@@ -43,8 +43,3 @@
   animation: buttonFadeIn 8s ease-in-out 0s; /* Кнопка з'являється через 4 секунди */
   animation-fill-mode: forwards;
 }
-.hiddenImageBg{
-  background-position: center;
-  background-image: url('../assets/bgc.png');
-  background-repeat:no-repeat;
-}
