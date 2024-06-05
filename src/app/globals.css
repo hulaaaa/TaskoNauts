@@ -2,32 +2,49 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.animate-fadeIn {
+  animation: fadeIn 2.5s ease-in-out 0s; /* Назва з'являється через 2 секунди */
+  animation-fill-mode: forwards;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+@keyframes fadeInDelayed {
+  0% {
+    opacity: 0;
   }
+  100% {
+    opacity: 1;
+  }
+}
+
+.animate-fadeInDelayed {
+  animation: fadeInDelayed 6s ease-in-out 0s; /* Опис з'являється через 3 секунди */
+  animation-fill-mode: forwards;
+}
+
+@keyframes buttonFadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.animate-buttonFadeIn {
+  animation: buttonFadeIn 8s ease-in-out 0s; /* Кнопка з'являється через 4 секунди */
+  animation-fill-mode: forwards;
+}
+.hiddenImageBg{
+  background-position: center;
+  background-image: url('../assets/bgc.png');
+  background-repeat:no-repeat;
 }
