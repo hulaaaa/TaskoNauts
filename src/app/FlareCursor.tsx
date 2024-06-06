@@ -5,7 +5,7 @@ function FlareCursor() {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [isPointer, setIsPointer] = useState(false);
 
-  const handleMouseMove = (e) => {
+  const handleMouseMove = (e:any) => {
     setPosition({ x: e.clientX, y: e.clientY });
 
     const target = e.target;
