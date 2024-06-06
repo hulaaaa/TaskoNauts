@@ -12,7 +12,7 @@
 }
 
 .animate-fadeIn {
-  animation: fadeIn 1s ease-in-out 0s; /* Назва з'являється через 2 секунди */
+  animation: fadeIn 0.5s ease-in-out 0s; /* Назва з'являється через 2 секунди */
   animation-fill-mode: forwards;
 }
 
@@ -26,7 +26,7 @@
 }
 
 .animate-fadeInDelayed {
-  animation: fadeInDelayed 2s ease-in-out 0s; /* Опис з'являється через 3 секунди */
+  animation: fadeInDelayed 1s ease-in-out 0s; /* Опис з'являється через 3 секунди */
   animation-fill-mode: forwards;
 }
 
@@ -40,7 +40,7 @@
 }
 
 .animate-buttonFadeIn {
-  animation: buttonFadeIn 3s ease-in-out 0s; /* Кнопка з'являється через 4 секунди */
+  animation: buttonFadeIn 2s ease-in-out 0s; /* Кнопка з'являється через 4 секунди */
   animation-fill-mode: forwards;
 }
 @keyframes buttonFadeIn2 {
@@ -53,7 +53,7 @@
 }
 
 .animate-buttonFadeIn2 {
-  animation: buttonFadeIn 3s ease-in-out 0s; /* Кнопка з'являється через 4 секунди */
+  animation: buttonFadeIn 2.5s ease-in-out 0s; /* Кнопка з'являється через 4 секунди */
   animation-fill-mode: forwards;
 }
 .hiddenImageBg{
@@ -61,10 +61,10 @@
   background-image: url('../assets/bgc.png');
   background-repeat:no-repeat;
 }
-html{
-  cursor: none;
-
+* {
+  cursor: none !important;
 }
+
 .flare {
   position: fixed;
   border: 2px solid #ffffff96;
@@ -88,6 +88,7 @@ html{
 }
 
 .flare.pointer {
-  opacity: 0 !important;
+  border: 2px solid #ffffff96;
+  background-color: #ffffffce;
   transition: width 0.25s ease-in-out, height 0.25s ease-in-out, opacity 0.1s ease-in-out;
-} 
+}

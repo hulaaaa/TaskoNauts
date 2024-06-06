@@ -5,13 +5,17 @@ function FlareCursor() {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [isPointer, setIsPointer] = useState(false);
 
-  const handleMouseMove = (e:any) => {
+  const handleMouseMove = (e) => {
     setPosition({ x: e.clientX, y: e.clientY });
 
     const target = e.target;
 
     setIsPointer(
-      window.getComputedStyle(target).getPropertyValue('cursor') === 'pointer'
+      target.tagName.toLowerCase() === 'button' ||
+      target.tagName.toLowerCase() === 'a' ||
+      target.tagName.toLowerCase() === 'input' ||
+      target.getAttribute('data-cursor-pointer') !== null ||
+      window.getComputedStyle(target).cursor === 'pointer'
     );
   };
 
@@ -22,15 +26,12 @@ function FlareCursor() {
     };
   }, []);
 
-  const flareSize = isPointer ? 0 : 20;
-
-  const cursorStyle = isPointer ? { left: '-100px', top: '-100px' } : {};
+  const flareSize = isPointer ? 20 : 10;
 
   return (
     <div
       className={`flare ${isPointer ? 'pointer' : ''}`}
       style={{
-        ...cursorStyle,
         left: `${position.x}px`,
         top: `${position.y}px`,
         width: `${flareSize}px`,
