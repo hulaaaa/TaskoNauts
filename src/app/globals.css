@@ -12,7 +12,7 @@
 }
 
 .animate-fadeIn {
-  animation: fadeIn 2.5s ease-in-out 0s; /* Назва з'являється через 2 секунди */
+  animation: fadeIn 1s ease-in-out 0s; /* Назва з'являється через 2 секунди */
   animation-fill-mode: forwards;
 }
 
@@ -26,7 +26,7 @@
 }
 
 .animate-fadeInDelayed {
-  animation: fadeInDelayed 6s ease-in-out 0s; /* Опис з'являється через 3 секунди */
+  animation: fadeInDelayed 2s ease-in-out 0s; /* Опис з'являється через 3 секунди */
   animation-fill-mode: forwards;
 }
 
@@ -40,7 +40,7 @@
 }
 
 .animate-buttonFadeIn {
-  animation: buttonFadeIn 8s ease-in-out 0s; /* Кнопка з'являється через 4 секунди */
+  animation: buttonFadeIn 3s ease-in-out 0s; /* Кнопка з'являється через 4 секунди */
   animation-fill-mode: forwards;
 }
 @keyframes buttonFadeIn2 {
@@ -53,7 +53,7 @@
 }
 
 .animate-buttonFadeIn2 {
-  animation: buttonFadeIn 8s ease-in-out 0s; /* Кнопка з'являється через 4 секунди */
+  animation: buttonFadeIn 3s ease-in-out 0s; /* Кнопка з'являється через 4 секунди */
   animation-fill-mode: forwards;
 }
 .hiddenImageBg{
@@ -61,3 +61,33 @@
   background-image: url('../assets/bgc.png');
   background-repeat:no-repeat;
 }
+html{
+  cursor: none;
+
+}
+.flare {
+  position: fixed;
+  border: 2px solid #ffffff96;
+  border-radius: 50%;
+  mix-blend-mode: screen;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 999999 !important;
+  backdrop-filter: blur(2px);
+  background-color: #0000007c;
+  transition: width 0.25s ease-in-out, height 0.25s ease-in-out;
+}
+
+@media screen and (max-width: 768px) {
+  .flare {
+    width: 0;
+    height: 0;
+    transition: width 0.2s ease-in-out, height 0.2s ease-in-out,
+      opacity 0.2s ease-in-out;
+  }
+}
+
+.flare.pointer {
+  opacity: 0 !important;
+  transition: width 0.25s ease-in-out, height 0.25s ease-in-out, opacity 0.1s ease-in-out;
+} 
