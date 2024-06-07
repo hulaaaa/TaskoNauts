@@ -45,7 +45,7 @@ export default function Signup() {
         
       >
         <h2 className="font-bold text-xl text-white">
-          Welcome to Tribe
+          Welcome to TaskoNauts
         </h2>
         <p className="text-neutral-600 text-sm max-w-sm mt-2 dark:text-neutral-300">
           Sign up and start building a team
@@ -116,7 +116,6 @@ export default function Signup() {
       {loading && (
         <div
           className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50"
-          
         >
           <Loader loadingStates={loadingStates} loading={loading} duration={1500} />
         </div>

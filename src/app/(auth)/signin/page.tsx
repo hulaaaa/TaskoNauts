@@ -21,7 +21,7 @@ export default function Signin() {
     <div className="container">
       <div className="max-w-md w-full mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-input bg-white dark:bg-black">
         <h2 className="font-bold text-xl text-white">
-          Keep working with TribeTasker
+          Keep working with TaskoNauts
         </h2>
         <p className="text-neutral-600 text-sm max-w-sm mt-2 dark:text-neutral-300">
           Sign in and let's manage team's and projects
