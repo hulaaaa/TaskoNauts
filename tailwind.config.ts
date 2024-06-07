@@ -5,7 +5,6 @@ const colors = require("tailwindcss/colors");
 const {
   default: flattenColorPalette,
 } = require("tailwindcss/lib/util/flattenColorPalette");
-
 module.exports = {
   content: ["./src/**/*.{ts,tsx}"],
   darkMode: "class",
@@ -62,6 +61,7 @@ module.exports = {
     },
   ],
 };
+
 function addVariablesForColors({ addBase, theme }: any) {
   let allColors = flattenColorPalette(theme("colors"));
   let newVars = Object.fromEntries(
