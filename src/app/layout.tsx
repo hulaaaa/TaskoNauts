@@ -12,6 +12,9 @@ export const metadata: Metadata = {
   icons: {
     icon: '/favicon-32x32.png'
   },
+  openGraph: {
+    images: 'https://photos.sphereshowcase.com/tBJczsgyzUAP3woETDr31.jpg',
+  },
 };
 
 export default function RootLayout({
