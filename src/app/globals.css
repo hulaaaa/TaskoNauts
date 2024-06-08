@@ -58,7 +58,6 @@
 }
 .hiddenImageBg{
   background-position:50% 70%;
-  /* background-position: center; */
   background-image: url('../assets/bgc.png');
   background-repeat:no-repeat;
 }
