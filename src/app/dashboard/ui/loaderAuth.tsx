@@ -92,7 +92,7 @@ const LoaderCore = ({
 export const AuthLoader  = ({
   loadingStates,
   loading,
-  duration = 2000,
+  duration = 500,
   loop = true,
 }: {
   loadingStates: LoadingState[];
