@@ -56,7 +56,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
       </div>
       <div className="bg-gradient-to-r from-transparent via-neutral-300 dark:via-neutral-700 to-transparent  h-[1px] w-full" />
 
-      <div className="flex flex-row items-center justify-between m-5 md:m-12 z-10">
+      <div className="w-full h-full z-10 p-5 md:p-12">
         {children}
       </div>
       <div className="absolute inset-0 pointer-events-none flex items-center justify-center dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_70%,black)]" style={{ zIndex: 0 }}></div>
