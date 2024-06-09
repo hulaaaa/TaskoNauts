@@ -56,7 +56,7 @@ export default function Signup() {
         <div className="flex flex-row justify-between items-center">
           <div>
             <h2 className="font-bold text-xl text-white">
-              {!isAdmin ? "Welcome to TaskoNauts" : "Welcome to Panel TaskoNauts"}
+              Welcome to TaskoNauts
             </h2>
             <p className="text-neutral-600 text-sm max-w-sm mt-2 dark:text-neutral-300">
               {isAdmin ? "Sign up and start building a team" : "Sign up and start managing your tasks"}
