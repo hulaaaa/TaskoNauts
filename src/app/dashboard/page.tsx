@@ -1,11 +1,10 @@
 "use client"
 import React from "react";
- 
+
 import { AnimatePresence, motion } from "framer-motion";
 import { IconCircleMinus, IconSearch } from "@tabler/icons-react";
 import { CircularProgressBar } from "@tomickigrzegorz/react-circular-progress-bar";
 import { CanvasRevealEffect } from "./ui/revalChat";
-
 
 export default function Dashboard() {
   const props = {
@@ -19,107 +18,97 @@ export default function Dashboard() {
     cut: 0,
     rotation: -90,
     unit: "%",
-    // linearGradient: ['rgba(10,107,104,1) 0%', 'rgba(13,157,222,1) 50%', 'rgba(10,107,104,1) 100%)'],
     animationOff: false,
     inverse: false,
     round: false,
     number: false,
   };
-  return(
+
+  return (
     <div className="w-full h-full flex flex-row items-center justify-between gap-3">
-      <div className="flex flex-col justify-between " style={{ width: '25%', height: '100%', gap: 12}}>
-        <div className="p-5 border border-transparent dark:border-white/[0.2] sm:rounded-xl rounded-3xl z-[5000] " style={{ width: '100%', height: 'calc(30% - 6px)' }}>
+      <div className="flex flex-col justify-between" style={{ width: '25%', height: '100%', gap: 12 }}>
+        <div className="p-5 border border-transparent dark:border-white/[0.2] sm:rounded-xl rounded-3xl z-[5000]" style={{ width: '100%', height: 'calc(30% - 6px)' }}>
           <h1 className="font-medium text-lg">Project description</h1>
-          <div className="my-3 bg-gradient-to-r from-transparent via-neutral-300 dark:via-neutral-700 to-transparent  h-[1px] w-full" />
-          <p className="font-normal text-m text-white/50">Development of a web platform aimed at providing information about real estate avalible for sale and rent.</p>
+          <div className="my-3 bg-gradient-to-r from-transparent via-neutral-300 dark:via-neutral-700 to-transparent h-[1px] w-full" />
+          <p className="font-normal text-m text-white/50">Development of a web platform aimed at providing information about real estate available for sale and rent.</p>
         </div>
-        <div className="p-5 border border-transparent dark:border-white/[0.2] sm:rounded-xl rounded-3xlshadow-md z-[5000] " style={{width: '100%', height: 'calc(70% - 6px)' }}>
+        <div className="p-5 border border-transparent dark:border-white/[0.2] sm:rounded-xl rounded-3xl shadow-md z-[5000]" style={{ width: '100%', height: 'calc(70% - 6px)' }}>
           <h1 className="font-medium text-lg">Project Progress</h1>
-          
-          <div className="my-3 bg-gradient-to-r from-transparent via-neutral-300 dark:via-neutral-700 to-transparent  h-[1px] w-full" />
-          
+          <div className="my-3 bg-gradient-to-r from-transparent via-neutral-300 dark:via-neutral-700 to-transparent h-[1px] w-full" />
           <div className="flex items-center justify-between">
             <div className="flex flex-col items-center">
               <h1 className="font-normal text-m">Design</h1>
-              <CircularProgressBar  {...props} />
+              <CircularProgressBar {...props} />
             </div>
             <div className="flex flex-col items-center">
               <h1 className="font-normal text-m">Front-End</h1>
-              <CircularProgressBar  {...props} />
+              <CircularProgressBar {...props} />
             </div>
             <div className="flex flex-col items-center">
               <h1 className="font-normal text-m">Back-End</h1>
-              <CircularProgressBar  {...props} />
+              <CircularProgressBar {...props} />
             </div>
             <div className="flex flex-col items-center">
               <h1 className="font-normal text-m">QA</h1>
-              <CircularProgressBar  {...props} />
+              <CircularProgressBar {...props} />
             </div>
           </div>
-
         </div>
       </div>
 
-      <div style={{width: '25%',height: '100%'}}>
-        <div className="p-5 border border-transparent dark:border-white/[0.2] sm:rounded-xl rounded-3xl shadow-md z-[5000] " style={{ width: '100%', height: '100%' }}>
-        
-        </div>
+      <div style={{ width: '25%', height: '100%' }}>
+        <div className="p-5 border border-transparent dark:border-white/[0.2] sm:rounded-xl rounded-3xl shadow-md z-[5000]" style={{ width: '100%', height: '100%' }}></div>
       </div>
 
-      <div className="flex flex-col justify-between" style={{ width: '25%', height: '100%', gap: 12}}>
-        <div className="p-5 border border-transparent dark:border-white/[0.2] sm:rounded-xl rounded-3xl shadow-md z-[5000] " style={{ width: '100%', height: 'calc(40% - 6px)' }}>
-        
-        </div>
-        <div className="p-5 border border-transparent dark:border-white/[0.2] sm:rounded-xl rounded-3xl shadow-md z-[5000] " style={{ width: '100%', height: 'calc(60% - 6px)' }}>
-        
-        </div>
+      <div className="flex flex-col justify-between" style={{ width: '25%', height: '100%', gap: 12 }}>
+        <div className="p-5 border border-transparent dark:border-white/[0.2] sm:rounded-xl rounded-3xl shadow-md z-[5000]" style={{ width: '100%', height: 'calc(40% - 6px)' }}></div>
+        <div className="p-5 border border-transparent dark:border-white/[0.2] sm:rounded-xl rounded-3xl shadow-md z-[5000]" style={{ width: '100%', height: 'calc(60% - 6px)' }}></div>
       </div>
-      <div className="flex flex-col justify-between p-5 border border-transparent dark:border-white/[0.2] sm:rounded-xl rounded-3xl shadow-md z-[5000] " style={{width: '25%',height: '100%'}}>
+      
+      <div className="flex flex-col justify-between p-5 border border-transparent dark:border-white/[0.2] sm:rounded-xl rounded-3xl shadow-md z-[5000]" style={{ width: '25%', height: '100%' }}>
         <div className="flex items-center justify-between">
           <h1 className="font-medium text-lg text-white/15">Team Messenger</h1>
-          <IconSearch className="text-white/15"/>
+          <IconSearch className="text-white/15" />
         </div>
 
-        <div className="my-3 bg-gradient-to-r from-transparent via-neutral-300 dark:via-neutral-700 to-transparent  h-[1px] w-full" />
-          
-        <div className=" border border-black/[0.2] group/canvas-card flex items-center justify-center dark:border-white/[0.2]  max-w-sm w-full mx-auto p-4 relative h-[30rem] relative">
-            <Icon className="absolute h-6 w-6 -top-3 -left-3 dark:text-white text-black" />
-            <Icon className="absolute h-6 w-6 -bottom-3 -left-3 dark:text-white text-black" />
-            <Icon className="absolute h-6 w-6 -top-3 -right-3 dark:text-white text-black" />
-            <Icon className="absolute h-6 w-6 -bottom-3 -right-3 dark:text-white text-black" />
-            <AnimatePresence>
-              <div className="h-full w-full absolute inset-0">
-                <CanvasRevealEffect
-                  animationSpeed={3}
-                  containerClassName="bg-black"
-                  colors={[
-                    [236, 72, 153],
-                    [232, 121, 249],
-                  ]}
-                  dotSize={2}
-                />
-              </div>
-            </AnimatePresence>
-            <div className="relative z-20">
-              <div className="text-center group-hover/canvas-card:-translate-y-4 group-hover/canvas-card:opacity-0 transition duration-200 w-full  mx-auto flex items-center justify-center">
-                <Logo />
-              </div>
-              <h2 className="dark:text-white text-xl opacity-0 group-hover/canvas-card:opacity-100 relative z-10 text-black   font-bold group-hover/canvas-card:text-white group-hover/canvas-card:-translate-y-2 transition duration-200">
-                I&apos;m static and I know it.
-              </h2>
+        <div className="my-3 bg-gradient-to-r from-transparent via-neutral-300 dark:via-neutral-700 to-transparent h-[1px] w-full" />
+
+        <div className="border border-black/[0.2] group/canvas-card flex items-center justify-center dark:border-white/[0.2] max-w-sm w-full mx-auto p-4 relative h-[30rem]">
+          <IconCircleMinus className="absolute h-6 w-6 -top-3 -left-3 dark:text-white text-black" />
+          <IconCircleMinus className="absolute h-6 w-6 -bottom-3 -left-3 dark:text-white text-black" />
+          <IconCircleMinus className="absolute h-6 w-6 -top-3 -right-3 dark:text-white text-black" />
+          <IconCircleMinus className="absolute h-6 w-6 -bottom-3 -right-3 dark:text-white text-black" />
+          <AnimatePresence>
+            <div className="h-full w-full absolute inset-0">
+              <CanvasRevealEffect
+                animationSpeed={3}
+                containerClassName="bg-black"
+                colors={[
+                  [236, 72, 153],
+                  [232, 121, 249],
+                ]}
+                dotSize={2}
+              />
             </div>
+          </AnimatePresence>
+          <div className="relative z-20">
+            <div className="text-center group-hover/canvas-card:-translate-y-4 group-hover/canvas-card:opacity-0 transition duration-200 w-full mx-auto flex items-center justify-center">
+              <Logo />
+            </div>
+            <h2 className="dark:text-white text-xl opacity-0 group-hover/canvas-card:opacity-100 relative z-10 text-black font-bold group-hover/canvas-card:text-white group-hover/canvas-card:-translate-y-2 transition duration-200">
+              I&apos;m static and I know it.
+            </h2>
+          </div>
         </div>
-        
-        <div className="flex items-center justify-between p-5 border border-transparent dark:border-white/[0.2] sm:rounded-xl rounded-3xl shadow-md z-[5000] ">
+
+        <div className="flex items-center justify-between p-5 border border-transparent dark:border-white/[0.2] sm:rounded-xl rounded-3xl shadow-md z-[5000]">
           <h1 className="font-medium text-sm text-white/50">nope :(</h1>
-          <IconCircleMinus className="text-white/50"/>
+          <IconCircleMinus className="text-white/50" />
         </div>
       </div>
     </div>
-  )
+  );
 }
-
- 
 const Logo = () => {
   return (
     <svg width="110" height="50" viewBox="0 0 110 50" fill="none" xmlns="http://www.w3.org/2000/svg">
