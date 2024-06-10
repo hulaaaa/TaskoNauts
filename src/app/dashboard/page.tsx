@@ -4,6 +4,7 @@ import React from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { IconCircleMinus, IconSearch } from "@tabler/icons-react";
 import { CircularProgressBar } from "@tomickigrzegorz/react-circular-progress-bar";
+
 import { CanvasRevealEffect } from "./ui/revalChat";
 
 export default function Dashboard() {
