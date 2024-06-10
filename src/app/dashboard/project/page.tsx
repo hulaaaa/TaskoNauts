@@ -73,10 +73,10 @@ export default function Project() {
         <div className="my-3 bg-gradient-to-r from-transparent via-neutral-300 dark:via-neutral-700 to-transparent h-[1px] w-full" />
 
         <div className="border border-black/[0.2] group/canvas-card flex items-center justify-center dark:border-white/[0.2] max-w-sm w-full mx-auto p-4 relative h-[30rem]">
-          <IconCircleMinus className="absolute h-6 w-6 -top-3 -left-3 dark:text-white text-black" />
-          <IconCircleMinus className="absolute h-6 w-6 -bottom-3 -left-3 dark:text-white text-black" />
-          <IconCircleMinus className="absolute h-6 w-6 -top-3 -right-3 dark:text-white text-black" />
-          <IconCircleMinus className="absolute h-6 w-6 -bottom-3 -right-3 dark:text-white text-black" />
+          <Icon className="absolute h-6 w-6 -top-3 -left-3 dark:text-white text-black" />
+          <Icon className="absolute h-6 w-6 -bottom-3 -left-3 dark:text-white text-black" />
+          <Icon className="absolute h-6 w-6 -top-3 -right-3 dark:text-white text-black" />
+          <Icon className="absolute h-6 w-6 -bottom-3 -right-3 dark:text-white text-black" />
           <AnimatePresence>
             <div className="h-full w-full absolute inset-0">
               <CanvasRevealEffect
@@ -95,7 +95,7 @@ export default function Project() {
               <Logo />
             </div>
             <h2 className="dark:text-white text-xl opacity-0 group-hover/canvas-card:opacity-100 relative z-10 text-black font-bold group-hover/canvas-card:text-white group-hover/canvas-card:-translate-y-2 transition duration-200">
-              I&apos;m static and I know it.
+              Soon i’ll be avalible.
             </h2>
           </div>
         </div>
@@ -118,4 +118,18 @@ const Logo = () => {
 
   );
 };
- 
+export const Icon = ({ className, ...rest }: any) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      strokeWidth="1.5"
+      stroke="currentColor"
+      className={className}
+      {...rest}
+    >
+      <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m6-6H6" />
+    </svg>
+  );
+};
