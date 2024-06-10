@@ -118,7 +118,7 @@ const Logo = () => {
 
   );
 };
-export const Icon = ({ className, ...rest }: any) => {
+const Icon = ({ className, ...rest }: any) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
