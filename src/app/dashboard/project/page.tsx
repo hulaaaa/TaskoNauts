@@ -1,69 +1,181 @@
 "use client"
 import React from "react";
-
 import { AnimatePresence, motion } from "framer-motion";
 import { IconCircleMinus, IconSearch } from "@tabler/icons-react";
-import { CircularProgressBar } from "@tomickigrzegorz/react-circular-progress-bar";
 import { CanvasRevealEffect } from "../ui/revalChat";
+import { Progress, ScrollArea } from "@radix-ui/themes";
+import * as Avatar from '@radix-ui/react-avatar';
+import Image from "next/image";
+import { AnimatedTooltip } from "../ui/animTooltip";
+const people = [
+  {
+    id: 1,
+    name: "John Doe",
+    designation: "Software Engineer",
+    image:
+      "/teamImage/iconLead.png",
+  },
+  {
+    id: 2,
+    name: "Robert Johnson",
+    designation: "Product Manager",
+    image:
+      "/teamImage/iconTeam1.png",
+  },
+  {
+    id: 3,
+    name: "Jane Smith",
+    designation: "Data Scientist",
+    image:
+      "/teamImage/iconLead.png",
+  },
+  {
+    id: 4,
+    name: "Emily Davis",
+    designation: "UX Designer",
+    image:
+      "/teamImage/iconTeam1.png",
+  },
+];
 export default function Project() {
-  const props = {
-    percent: 60,
-    colorCircle: "#FFE4DF",
-    size: 100,
-    stroke: 8,
-    colorSlice: "#FF6B00",
-    strokeBottom: 8,
-    speed: 200,
-    cut: 0,
-    rotation: -90,
-    unit: "%",
-    animationOff: false,
-    inverse: false,
-    round: false,
-    number: false,
-  };
 
   return (
     <div className="w-full h-full flex flex-row items-center justify-between gap-3">
+      {/* Project description & Progress */}
       <div className="flex flex-col justify-between" style={{ width: '25%', height: '100%', gap: 12 }}>
         <div className="p-5 border border-transparent dark:border-white/[0.2] sm:rounded-xl rounded-3xl z-[5000]" style={{ width: '100%', height: 'calc(30% - 6px)' }}>
           <h1 className="font-medium text-lg">Project description</h1>
           <div className="my-3 bg-gradient-to-r from-transparent via-neutral-300 dark:via-neutral-700 to-transparent h-[1px] w-full" />
           <p className="font-normal text-m text-white/50">Development of a web platform aimed at providing information about real estate available for sale and rent.</p>
         </div>
-        <div className="p-5 border border-transparent dark:border-white/[0.2] sm:rounded-xl rounded-3xl shadow-md z-[5000]" style={{ width: '100%', height: 'calc(70% - 6px)' }}>
-          <h1 className="font-medium text-lg">Project Progress</h1>
-          <div className="my-3 bg-gradient-to-r from-transparent via-neutral-300 dark:via-neutral-700 to-transparent h-[1px] w-full" />
-          <div className="flex items-center justify-between">
-            <div className="flex flex-col items-center">
-              <h1 className="font-normal text-m">Design</h1>
-              <CircularProgressBar {...props} />
+        <div className="flex flex-col justify-between p-5 border border-transparent dark:border-white/[0.2] sm:rounded-xl rounded-3xl shadow-md z-[5000]" style={{ width: '100%', height: 'calc(70% - 6px)' }}>
+          <div className="flex flex-col">
+            <h1 className="font-medium text-lg">Project Progress</h1>
+            <div className="my-3 bg-gradient-to-r from-transparent via-neutral-300 dark:via-neutral-700 to-transparent h-[1px] w-full" />
+            <div className="flex flex-col gap-10 w-full mt-5">
+              <div className="flex flex-row items-center gap-5 justify-between">
+                <div className="flex w-full flex-col gap-1">
+                  <h1 className="font-normal text-m">Design</h1>
+                  <Progress value={75} color={'gray'} highContrast  size="3" />
+                </div>
+                <div className="flex w-full flex-col gap-1">
+                  <h1 className="font-normal text-m">Front-End</h1>
+                  <Progress value={25} color={'gray'} highContrast size="3" />
+                </div>
+              </div>
+              <div className="flex flex-row items-center gap-5 justify-between">
+                <div className="flex w-full flex-col gap-1">
+                  <h1 className="font-normal text-m">Back-End</h1>
+                  <Progress value={90} color={'gray'} highContrast size="3" />
+                </div>
+                <div className="flex w-full flex-col gap-1">
+                  <h1 className="font-normal text-m">QA</h1>
+                  <Progress value={12} color={'gray'} highContrast size="3" />
+                </div>
+              </div>
             </div>
-            <div className="flex flex-col items-center">
-              <h1 className="font-normal text-m">Front-End</h1>
-              <CircularProgressBar {...props} />
+          </div>
+          
+          <div className="flex flex-col gap-5">
+            <div className="flex flex-col">
+              <h1 className="font-medium text-m">Daily Tasks Done</h1>
+              <h1 className="font-bold text-3xl">12/23</h1>
             </div>
-            <div className="flex flex-col items-center">
-              <h1 className="font-normal text-m">Back-End</h1>
-              <CircularProgressBar {...props} />
-            </div>
-            <div className="flex flex-col items-center">
-              <h1 className="font-normal text-m">QA</h1>
-              <CircularProgressBar {...props} />
+            <div className="flex flex-col gap-2">
+              <Progress value={45} color={'gray'} highContrast  size="3" />
+              <div className="flex flex-row items-center gap-2">
+                <h1 className="font-light text-xl">49%</h1>
+                <h1 className="font-light text-xl">Done</h1>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
+      {/* Tasks */}
       <div style={{ width: '25%', height: '100%' }}>
-        <div className="p-5 border border-transparent dark:border-white/[0.2] sm:rounded-xl rounded-3xl shadow-md z-[5000]" style={{ width: '100%', height: '100%' }}></div>
+        <div className="flex flex-col  p-5 border border-transparent dark:border-white/[0.2] sm:rounded-xl rounded-3xl shadow-md z-[5000]" style={{ width: '100%', height: '100%' }}>
+          <div>
+            <div>
+              <h1 className="font-medium text-lg">Tasks</h1>
+              <div className="my-3 bg-gradient-to-r from-transparent via-neutral-300 dark:via-neutral-700 to-transparent h-[1px] w-full" />
+            </div>
+            <div className="flex flex-row justify-between items-center">
+              <div style={{padding: '5px 15px', border: '1px solid rgba(255,255,255,0.7)',borderRadius: 10,}}>
+                <h1 className="font-normal text-m">New Tasks</h1>
+              </div>
+              <div style={{padding: '5px 15px',color:'rgba(255,255,255,0.7)'}}>
+                <h1 className="font-normal text-m">In Progress</h1>
+              </div>
+              <div style={{padding: '5px 15px',color:'rgba(255,255,255,0.7)'}}>
+                <h1 className="font-normal text-m">Completed</h1>
+              </div>
+            </div>
+          </div>
+          <div className="flex flex-row gap-2 justify-between mt-10">
+            <div className="flex flex-row gap-2">
+              <div style={{
+                  width: 20,
+                  height: 20,
+                  borderRadius: "50%",
+                  backgroundColor: "transparent",
+                  border: "3px solid #FFFFFF",
+                }}
+              />
+              <h1 className="font-normal text-m">Finalizing the design of your personal account</h1>
+            </div>
+          </div>
+        </div>
       </div>
 
+      {/* Due date & team memb. */}
       <div className="flex flex-col justify-between" style={{ width: '25%', height: '100%', gap: 12 }}>
-        <div className="p-5 border border-transparent dark:border-white/[0.2] sm:rounded-xl rounded-3xl shadow-md z-[5000]" style={{ width: '100%', height: 'calc(40% - 6px)' }}></div>
-        <div className="p-5 border border-transparent dark:border-white/[0.2] sm:rounded-xl rounded-3xl shadow-md z-[5000]" style={{ width: '100%', height: 'calc(60% - 6px)' }}></div>
+        <div className="flex flex-col justify-between p-5 border border-transparent dark:border-white/[0.2] sm:rounded-xl rounded-3xl shadow-md z-[5000]" style={{ width: '100%', height: 'calc(30% - 6px)' }}>
+          <div>
+            <h1 className="font-medium text-lg">Due Date</h1>
+            <div className="my-3 bg-gradient-to-r from-transparent via-neutral-300 dark:via-neutral-700 to-transparent h-[1px] w-full" />
+          </div>
+          <div className="flex flex-col gap-6">
+            <Progress value={45} color={'gray'} highContrast size="3" />
+            <div className="flex flex-row items-center justify-between">
+              <div className="flex flex-row items-center gap-3">
+                <h1 className="font-bold text-xl">45%</h1>
+                <h1 className="font-light text-lg">Time Spend</h1>
+              </div>
+              <h1 className="font-bold text-xl">Fri, 04/17</h1>
+            </div>
+          </div>
+        </div>
+
+        <div className="flex flex-col justify-between p-5 border border-transparent dark:border-white/[0.2] sm:rounded-xl rounded-3xl shadow-md z-[5000]" style={{ width: '100%', height: 'calc(70% - 6px)' }}>
+          <div>
+            <h1 className="font-medium text-lg">Team Project</h1>
+            <div className="my-3 bg-gradient-to-r from-transparent via-neutral-300 dark:via-neutral-700 to-transparent h-[1px] w-full" />
+          </div>
+          <div className="flex flex-col gap-5">
+            <div className="flex flex-row gap-3">
+              <h1 className="font-medium text-lg">Team Lead:</h1>
+              <span className="font-light text-lg text-white/40">Arsenii Haran</span>
+            </div>
+            <div className="flex items-center justify-center">
+              <Image src="/iconLead.png" alt="senya" width={60} height={60} />
+            </div>
+            
+          </div>
+          <div className="flex flex-col gap-5">
+            <div className="flex flex-row gap-3">
+              <h1 className="font-medium text-lg">Team Members:</h1>
+              <span className="font-light text-lg text-white/40">4 developers</span>
+            </div>
+            <div className="flex items-center justify-center">
+              <AnimatedTooltip items={people} />
+            </div>
+            
+          </div>
+        </div>
       </div>
       
+      {/* CHAT */}
       <div className="flex flex-col justify-between p-5 border border-transparent dark:border-white/[0.2] sm:rounded-xl rounded-3xl shadow-md z-[5000]" style={{ width: '25%', height: '100%' }}>
         <div className="flex items-center justify-between">
           <h1 className="font-medium text-lg text-white/15">Team Messenger</h1>
@@ -108,6 +220,9 @@ export default function Project() {
     </div>
   );
 }
+
+
+
 const Logo = () => {
   return (
     <svg width="110" height="50" viewBox="0 0 110 50" fill="none" xmlns="http://www.w3.org/2000/svg">

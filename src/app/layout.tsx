@@ -26,7 +26,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      
       <body className={montserrat.className}>
         <Theme accentColor="gray" radius="large" appearance="dark">
           <FlareCursor />

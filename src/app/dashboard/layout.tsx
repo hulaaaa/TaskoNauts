@@ -1,6 +1,9 @@
+"use client"
 import { IconHome, IconLogout, IconMessage, IconSettings, IconUser } from "@tabler/icons-react";
 import { FloatingNav } from "./ui/navbar";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
+import { Badge } from "flowbite-react";
 
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
   const navItems = [
@@ -25,22 +28,29 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
       icon: <IconMessage className="h-4 w-4 text-neutral-500 dark:text-white" />,
     },
   ];
-
+  const url = usePathname()
+  console.log(url);
+  
   return (
     <div className="relative h-screen w-screen flex flex-col">
       <div className="relative m-5 md:m-12" style={{ display: 'grid', gridTemplateColumns: '1fr auto 1fr', alignItems: 'center' }}>
         <div className="flex flex-row items-center gap-15 md:gap-7" style={{ zIndex: 10 }}>
           <Image src="/logoDashboard.png" alt="Logo" layout="intrinsic" width={110} height={50} objectFit="contain" />
-          <div className="flex flex-row items-center gap-3">
-            <div className="flex flex-col md:flex-row md:gap-2 items-center">
-              <h1 className="text-xl md:text-2xl font-medium text-white">Project</h1>
-              <div style={{width:7,height:7,backgroundColor:'white',borderRadius:7}}/>
-              <h1 className="text-xl md:text-2xl font-medium text-white">Uber</h1>
+          {
+            url === '/dashboard/project' && (
+              <div className="flex flex-row items-center gap-3">
+              <div className="flex flex-col md:flex-row md:gap-2 items-center">
+                <h1 className="text-xl md:text-2xl font-medium text-white">Project</h1>
+                <div style={{width:7,height:7,backgroundColor:'white',borderRadius:7}}/>
+                <h1 className="text-xl md:text-2xl font-medium text-white">Uber</h1>
+              </div>
+              <div style={{backgroundColor:'#23E346', borderRadius:5, width: 'max-content', }}>
+                <h1 className="text-xs md:text-sm font-normal text-black my-1 mx-3 md:my-0 md:mx-3">In Progress</h1>
+              </div>
             </div>
-            <div style={{backgroundColor:'#23E346', borderRadius:5, width: 'max-content', }}>
-              <h1 className="text-xs md:text-sm font-normal text-black my-1 mx-3 md:my-0 md:mx-3">In Progress</h1>
-            </div>
-          </div>
+            )
+          }
+
         </div>
         <FloatingNav navItems={navItems} className="justify-self-center" />
         <div className="flex items-center gap-3 md:gap-5 justify-self-end" style={{ zIndex: 10 }}>

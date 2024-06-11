@@ -2,14 +2,19 @@
 const defaultTheme = require("tailwindcss/defaultTheme");
 const svgToDataUri = require("mini-svg-data-uri");
 const colors = require("tailwindcss/colors");
+const flowbite = require("flowbite-react/tailwind");
+
 const {
   default: flattenColorPalette,
 } = require("tailwindcss/lib/util/flattenColorPalette");
 module.exports = {
-  content: ["./src/**/*.{ts,tsx}"],
+  content: ["./src/**/*.{ts,tsx}",flowbite.content(),],
   darkMode: "class",
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['Montserrat', 'sans-serif'],
+      },
       animation: {
         spotlight: "spotlight 2s ease .75s 1 forwards",
       },
@@ -36,6 +41,7 @@ module.exports = {
     },
   },
   plugins: [
+    flowbite.plugin(),
     addVariablesForColors,
     function ({ matchUtilities, theme }: any) {
       matchUtilities(
