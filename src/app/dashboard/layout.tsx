@@ -8,12 +8,7 @@ import { Badge } from "flowbite-react";
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
   const navItems = [
     {
-      name: "Overview",
-      link: "/dashboard",
-      icon: <IconHome className="h-4 w-4 text-neutral-500 dark:text-white" />,
-    },
-    {
-      name: "Tasks",
+      name: "My Tasks",
       link: "/dashboard/tasks",
       icon: <IconUser className="h-4 w-4 text-neutral-500 dark:text-white" />,
     },

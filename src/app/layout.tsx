@@ -5,7 +5,6 @@ import '@radix-ui/themes/styles.css';
 const montserrat = Montserrat({ subsets: ["latin"] });
 import { Theme } from '@radix-ui/themes';
 import FlareCursor from "./FlareCursor";
-import Head from "next/head";
 export const metadata: Metadata = {
   title: "TaskoNauts",
   description: "Start working in the most comfortable and modern team and task management environment",
@@ -28,7 +27,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={montserrat.className}>
         <Theme accentColor="gray" radius="large" appearance="dark">
-          <FlareCursor />
+          {/* <FlareCursor /> */}
           {children}
         </Theme>
       </body>
