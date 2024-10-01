@@ -1,12 +1,7 @@
 "use client"
-import '@mobiscroll/react/dist/css/mobiscroll.min.css';
-import { Eventcalendar, setOptions } from '@mobiscroll/react';
 import { useMemo } from 'react';
 
-setOptions({
-  theme: 'ios',
-  themeVariant: 'dark'
-});
+
 
 
 export default function Timeline() {
@@ -168,16 +163,17 @@ export default function Timeline() {
 
   return(
     <div className="mt-50">
-      <Eventcalendar
-        clickToCreate={true}
-        dragToCreate={true}
-        dragToMove={true}
-        dragToResize={true}
-        eventDelete={true}
-        // view={myView}
-        data={myEvents}
-        resources={myResources}
-      />
+        mam to w dupie
+      {/*<Eventcalendar*/}
+      {/*  clickToCreate={true}*/}
+      {/*  dragToCreate={true}*/}
+      {/*  dragToMove={true}*/}
+      {/*  dragToResize={true}*/}
+      {/*  eventDelete={true}*/}
+      {/*  // view={myView}*/}
+      {/*  data={myEvents}*/}
+      {/*  resources={myResources}*/}
+      {/*/>*/}
     </div>
   )
 }
