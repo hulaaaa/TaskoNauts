@@ -1,5 +1,5 @@
 "use client"
-import { IconHome, IconLogout, IconMessage, IconSettings, IconUser } from "@tabler/icons-react";
+  import { IconHome, IconLogout, IconMessage, IconSettings, IconUser } from "@tabler/icons-react";
 import { FloatingNav } from "./ui/navbar";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -27,7 +27,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
   console.log(url);
   
   return (
-    <div className="relative h-screen w-screen flex flex-col">
+    <div className="relative h-screen w-screen flex flex-col" style={{ background: 'radial-gradient(ellipse, #2f63b6, #171616)' }}>
       <div className="relative m-5 md:m-12" style={{ display: 'grid', gridTemplateColumns: '1fr auto 1fr', alignItems: 'center' }}>
         <div className="flex flex-row items-center gap-15 md:gap-7" style={{ zIndex: 10 }}>
           <Image src="/logoDashboard.png" alt="Logo" layout="intrinsic" width={110} height={50} objectFit="contain" />
