@@ -163,7 +163,7 @@ export default function Timeline() {
 
   return(
     <div className="mt-50">
-        mam to w dupie
+        Calendar
     </div>
   )
 }
