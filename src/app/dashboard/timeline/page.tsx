@@ -164,16 +164,6 @@ export default function Timeline() {
   return(
     <div className="mt-50">
         mam to w dupie
-      {/*<Eventcalendar*/}
-      {/*  clickToCreate={true}*/}
-      {/*  dragToCreate={true}*/}
-      {/*  dragToMove={true}*/}
-      {/*  dragToResize={true}*/}
-      {/*  eventDelete={true}*/}
-      {/*  // view={myView}*/}
-      {/*  data={myEvents}*/}
-      {/*  resources={myResources}*/}
-      {/*/>*/}
     </div>
   )
 }
