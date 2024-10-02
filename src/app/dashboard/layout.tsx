@@ -1,70 +1,129 @@
-"use client"
-  import { IconHome, IconLogout, IconMessage, IconSettings, IconUser } from "@tabler/icons-react";
-import { FloatingNav } from "./ui/navbar";
-import Image from "next/image";
+"use client";
+import React, { useState } from "react";
+import {
+  IconArrowNarrowRight,
+  IconHome,
+  IconMessageCircle,
+  IconNote,
+  IconSettings,
+  IconUserCircle,
+} from "@tabler/icons-react";
+import { FloatingDock } from "./ui/floating-dock";
 import { usePathname } from "next/navigation";
-import { Badge } from "flowbite-react";
+import { useRouter } from "next/navigation";
 
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
-  const navItems = [
+  const url = usePathname(); // отримання поточного URL
+  const [open, setOpen] = useState(false);
+
+  const links = [
     {
-      name: "My Tasks",
-      link: "/dashboard/tasks",
-      icon: <IconUser className="h-4 w-4 text-neutral-500 dark:text-white" />,
+      title: "Home",
+      icon: (
+          <IconHome className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+      ),
+      href: "/dashboard",
     },
     {
-      name: "Project",
-      link: "/dashboard/project",
-      icon: <IconMessage className="h-4 w-4 text-neutral-500 dark:text-white" />,
+      title: "Chat",
+      icon: (
+          <IconMessageCircle className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+      ),
+      href: "#",
     },
     {
-      name: "Timeline",
-      link: "/dashboard/timeline",
-      icon: <IconMessage className="h-4 w-4 text-neutral-500 dark:text-white" />,
+      title: "Notes",
+      icon: (
+          <IconNote className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+      ),
+      href: "#",
+    },
+    {
+      title: "Profile",
+      icon: (
+          <IconUserCircle className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+      ),
+      href: "#",
+    },
+    {
+      title: "Settings",
+      icon: (
+          <IconSettings className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+      ),
+      href: "#",
     },
   ];
-  const url = usePathname()
-  console.log(url);
-  
+
+  const router = useRouter();
+
   return (
-    <div className="relative h-screen w-screen flex flex-col" style={{ background: 'radial-gradient(ellipse, #2f63b6, #171616)' }}>
-      <div className="relative m-5 md:m-12" style={{ display: 'grid', gridTemplateColumns: '1fr auto 1fr', alignItems: 'center' }}>
-        <div className="flex flex-row items-center gap-15 md:gap-7" style={{ zIndex: 10 }}>
-          <Image src="/logoDashboard.png" alt="Logo" layout="intrinsic" width={110} height={50} objectFit="contain" />
-          {
-            url === '/dashboard/project' && (
-              <div className="flex flex-row items-center gap-3">
-              <div className="flex flex-col md:flex-row md:gap-2 items-center">
-                <h1 className="text-xl md:text-2xl font-medium text-white">Project</h1>
-                <div style={{width:7,height:7,backgroundColor:'white',borderRadius:7}}/>
-                <h1 className="text-xl md:text-2xl font-medium text-white">Uber</h1>
-              </div>
-              <div style={{backgroundColor:'#23E346', borderRadius:5, width: 'max-content', }}>
-                <h1 className="text-xs md:text-sm font-normal text-black my-1 mx-3 md:my-0 md:mx-3">In Progress</h1>
-              </div>
-            </div>
-            )
-          }
-
-        </div>
-        <FloatingNav navItems={navItems} className="justify-self-center" />
-        <div className="flex items-center gap-3 md:gap-5 justify-self-end" style={{ zIndex: 10 }}>
-          <div data-cursor-pointer className="flex items-center gap-2 py-2 px-3 md:py-3 md:px-4 hover:bg-white/5 hover:rounded">
-            <IconSettings data-cursor-pointer />
-            <h1 data-cursor-pointer className="text-sm md:text-base">Settings</h1>
+      <div className="w-screen h-screen flex flex-col items-center px-32 py-7 dark:bg-black bg-white dark:bg-grid-small-white/[0.2] bg-grid-small-black/[0.2] relative">
+        <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_55%,black)]"></div>
+        <div className="w-full h-content flex flex-row items-center justify-between">
+          <div className="flex flex-row items-end gap-7">
+            <button onClick={() => router.push('/dashboard/project')}>
+              <h1
+                  className={`text-3xl font-bold text-center bg-clip-text animate-fadeIn ${
+                      url.startsWith("/dashboard/project")
+                          ? "text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400"
+                          : "text-white/20"
+                  }`}
+              >
+                Project
+              </h1>
+            </button>
+            <button onClick={() => router.push('/dashboard/tasks')}>
+              <h1
+                  className={`text-3xl font-bold text-center bg-clip-text animate-fadeIn ${
+                      url.startsWith("/dashboard/tasks")
+                          ? "text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400"
+                          : "text-white/20"
+                  }`}
+              >
+                Tasks
+              </h1>
+            </button>
+            <button onClick={() => router.push('/dashboard/update')}>
+              <h1
+                  className={`text-3xl font-bold text-center bg-clip-text animate-fadeIn ${
+                      url.startsWith("/dashboard/update")
+                          ? "text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400"
+                          : "text-white/20"
+                  }`}
+              >
+                Update
+              </h1>
+            </button>
           </div>
-          <div data-cursor-pointer className="flex items-center gap-2 py-2 px-3 md:py-3 md:px-4 hover:bg-white/5 hover:rounded">
-            <IconLogout data-cursor-pointer />
-            <h1 data-cursor-pointer className="text-sm md:text-base">Log Out</h1>
+
+
+          <div className="flex flex-row items-center gap-4">
+            <input
+                type="text"
+                className="border-0 border-transparent rounded-xl"
+                placeholder="Search"
+                style={{
+                  backgroundColor: "#202020",
+                  paddingLeft: "1rem",
+                  paddingRight: "1rem",
+                  paddingTop: "0.5rem",
+                  paddingBottom: "0.5rem",
+                  width: "20rem",
+                }}
+            />
+            <button
+                style={{ height: "100%", padding: "9px", backgroundColor: "#3274F5", borderRadius: 10 }}
+                type="button"
+            >
+              <IconArrowNarrowRight />
+            </button>
           </div>
         </div>
-      </div>
-      <div className="bg-gradient-to-r from-transparent via-neutral-300 dark:via-neutral-700 to-transparent  h-[1px] w-full" />
-
-      <div className="w-full h-full z-10 p-5 md:p-12">
         {children}
+        <FloatingDock
+            desktopClassName="absolute bottom-10 mx-auto"
+            items={links}
+        />
       </div>
-      <div className="absolute inset-0 pointer-events-none flex items-center justify-center dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_70%,black)]" style={{ zIndex: 0 }}></div>
-    </div>
   );
 }
